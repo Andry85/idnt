@@ -33,7 +33,12 @@
     /********************************************************/
         function fixheightHeader() {
             var heightHeader = $('.sticky-header').height();
-            $('.content').css('marginTop', heightHeader);
+            var warning = $('.warning').height();
+            setTimeout(function(){ 
+            	if (warning > 0) {
+            		$('.content').css('marginTop', heightHeader);
+            	}
+             }, 1500);
         };
         fixheightHeader();    
 
