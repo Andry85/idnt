@@ -1,0 +1,1046 @@
+.inner {
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 0 8rem;
+	position: relative;
+	@include breakpoint(xlg-down) {
+		padding: 0 6rem;
+	}
+	@include breakpoint(lg-down) {
+		padding: 0 3rem;
+	}
+	@include breakpoint(md-down) {
+		padding: 0 1.5rem;
+	}
+}
+.sticky-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+}
+.warning {
+	background: #fff3b9;
+	border-bottom: 1px solid #ebe0aa;
+	position: relative;
+	z-index: 3;
+	&__inside {
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 2.2rem 1.5rem 1.8rem 1.5rem;
+		position: relative;
+		@include breakpoint(md-down) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		@include breakpoint(sm-down) {
+			padding-top: 1.9rem;
+		}
+	}
+	&__desc {
+		padding: 0 14.5rem 0 0;
+		@include breakpoint(sm-down) {
+			padding: 0;
+		}
+	}
+	&__title {
+		font: {
+			family: 'San Francisco Text Bold';
+			size: 1.8rem;
+		}
+		margin: 0;
+		padding: 0 0 0.8rem 0;
+		@include breakpoint(sm-down) {
+			font-size: 1.6rem;
+			padding: 0 2.5rem 1.5rem 0;
+		}
+	}
+	&__text {
+		line-height: 1.45;
+		margin: 0;
+	}
+	&__btn {
+		font-family: 'San Francisco Text Semibold';
+		font-size: 1.4rem;
+		color: #000;
+		text-decoration: none;
+		border-radius: 0.2143em;
+		border: 0.071rem solid #000;
+		padding: 0.893em 1.143em;
+		min-width: 12rem;
+		margin: 1.5rem 0 0 0;
+		text-align: center;
+		position: absolute;
+		right: 1.5rem;
+		top: 50%;
+		display: block;
+		transform: translateY(-50%);
+		@include breakpoint(sm-down) {
+			position: static;
+			transform: translateY(0);
+			min-width: 100%;
+			text-align: center;
+			margin: 1.8rem 0 0 0;
+		}
+	}
+	&__cloze {
+		position: absolute;
+		top: 17px;
+		right: 12px;
+		width: 20px;
+		height: 20px;
+		z-index: 2;
+		cursor: pointer;
+		@include breakpoint(sm-down) {
+			top: 1.2rem;
+			right: 1rem;
+		}
+		&:before {
+			content: '';
+			width: 20px;
+			height: 2px;
+			background: #000;
+			position: absolute;
+			left: 0;
+			top: 0.5rem;
+			transform: rotate(-135deg);
+			transform-origin: bottom;
+		}
+		&:after {
+			content: '';
+			width: 20px;
+			height: 2px;
+			background: #000;
+			position: absolute;
+			left: 0;
+			top: 0.7rem;
+			transform: rotate(-45deg);
+			transform-origin: bottom;
+		}
+		
+	}
+}
+
+/* HEADER */
+.header {
+	background: #fff;
+	box-shadow: 0px 0px 0.6429em #C6C6CE;
+	position: relative;
+	z-index: 2;
+	&__logo {
+		background: url(../img/logo.svg) no-repeat;
+		width: 277px;
+		height: 37px;
+		background-size: 277px 37px;
+		text-indent: 90000px;
+		overflow: hidden;
+		display: block;
+		position: relative;
+		@include breakpoint(lg-down) {
+			width: 181px;
+			height: 28px;
+			background-size: 181px 28px;
+			left: 0.8rem;
+			top: 0.2rem;
+		}
+	}
+	&__inside {
+		height: 8.9rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		@include breakpoint(md-down) {
+			height: 5.8rem;
+		}
+	}
+}
+.menu {
+	@include breakpoint(md-down) {
+		display: none;
+	}
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 5.7rem;
+		&:first-child {
+			margin-left: 0;
+		}
+		@include breakpoint(lg-down) {
+			margin-left: 3rem;
+		}
+	}
+	&__link {
+		color: #767D83;
+	}
+}
+.mobileNavi {
+	display: none;
+	@include breakpoint(md-down) {
+		display: block;
+	}
+	&__burger {
+		width: 21px;
+		height: 17px;
+		cursor: pointer;
+		position: relative;
+		right: 0.7rem;
+		top: 0.1rem;
+		span {
+			width: 21px;
+			display: block;
+			background: #767D83;
+			height: 2px;
+			margin-bottom: 0.4rem;
+		}
+		&.close {
+			top: 0;
+			right: 0.6rem;
+			span {
+				position: absolute;
+				left: 0;
+				transform-origin: bottom;
+				margin: 0;
+			}
+			span:first-child {
+				top: 0.5rem;
+				transform: rotate(-135deg);
+			}
+			span:first-child + span {
+				top: 0.7rem;
+				transform: rotate(-45deg);
+			}
+			span:last-child {
+				display: none
+			}
+
+		}	
+	}
+}
+.mobileNaviList {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 5.8rem;
+	width: 100%;
+	background: #303539;
+	opacity: 0.98;
+	padding: 0.1rem 1.5rem 0 1.5rem;
+	&__item {
+		border-bottom: 1px solid #5C636A;
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+	&__link {
+		font-size: 1.6rem;
+		color: #fff;
+		padding: 1.25em 0.375em;
+		display: block;
+	}
+}
+
+/* content */
+.content {
+	padding: 0 0 5.4rem 0;
+}
+.description {
+	text-align: center;
+	max-width: 950px;
+	margin: 0 auto;
+	padding: 0 1rem;
+	@include breakpoint(sm-down) {
+		padding: 0;
+	}
+	&__title {
+		font-family: 'San Francisco Display Light';
+		font-size: 3.4rem;
+		padding: 3rem 0 1.6rem 0;
+		letter-spacing: -0.4px;
+		span {
+			font-family: 'San Francisco Display Bold';
+		}
+		@include breakpoint(sm-down) {
+			font-size: 2.2rem;
+			padding: 1.4rem 1rem .8rem 1rem;
+		}
+	}
+	&__text {
+		line-height: 1.5;
+		strong {
+			background: #fff3b9;
+			font-weight: normal;
+			font-family: 'San Francisco Display Bold';
+			padding: 0 0.2rem;
+		}
+	}
+}
+
+.services {
+	padding: 2.8rem 0 6.3rem 0;
+	display: flex;
+	justify-content: space-between;
+	@include breakpoint(sm-down) {
+		flex-wrap: wrap;
+		justify-content: center;
+		padding: 0.2rem 0 0 0;
+	}
+	&__item {
+		background: #fff;
+		flex-basis: 38.6rem;
+		&:nth-child(3n+2) {
+			margin: 0 2rem;
+			@include breakpoint(sm-down) {
+				margin: 1.6rem 0;
+			}
+		}
+		@include breakpoint(sm-down) {
+			margin: 1.6rem 0;
+		}
+	}
+}
+.box {
+	&__top {
+		background: #F9EBD4;
+		height: 9rem;
+		display: flex;
+		@include breakpoint(sm-down) {
+			height: 7.3rem;
+		}
+	}
+	&__pic {
+		flex-grow: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+		img {
+			@include breakpoint(md-down) {
+				width: 75%;
+			}
+		}
+	}
+	&__date {
+		min-width: 7.6rem;
+		background: #B94A26;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
+		@include breakpoint(sm-down) {
+			min-width: 7rem;
+		}
+		span {
+			&:first-child {
+				top: 2px;
+			}
+			font-size: 1.4rem;
+			font-family: 'San Francisco Text Bold';
+			position: relative;
+			top: -4px;
+			@include breakpoint(sm-down) {
+				font-size: 1.2rem;
+			}
+		}
+		i {
+			font-size: 3rem;
+			font-family: 'San Francisco Text Heavy';
+			font-style: normal;
+			@include breakpoint(sm-down) {
+				font-size: 2.7rem;
+			}
+		}
+	}
+	&__screen {
+		text-align: center;
+		padding: 3.1rem 0 0 0;
+		@include breakpoint(sm-down) {
+			padding: 3.1rem 2rem 0 2rem;
+		}
+	}
+	&__body {
+		padding: 0 3rem;
+		@include breakpoint(sm-down) {
+			padding: 0 1.4rem;
+		}
+	}
+	&__btn {
+		background: #72856E;
+		font-family: 'San Francisco Text Bold';
+		display: block;
+		font-size: 1.8rem;
+		border-radius: 0.1667em;
+		color: #fff;
+		text-align: center;
+		padding: 1.167em 1em 1.222em 1em;
+		@include breakpoint(sm-down) {
+			font-size: 1.6rem;
+			padding: 0.99em 1em 0.99em 1em;
+		}
+	}
+	&__text {
+		text-align: center;
+		font-size: 1.4rem;
+		opacity: 0.6;
+		line-height: 1.42;
+		padding: 1.9rem 0 2.3rem 0;
+
+	}
+}
+.benefitesList {
+	padding: 2.8rem 0 1.3rem 0;
+	@include breakpoint(sm-down) {
+		padding: 2.0rem 0 0.5rem 0;
+	}
+	&__item {
+		padding: 0 0 0 25px;
+		margin: 0 0 1.9rem 0;
+		position: relative;
+	
+	}
+	&__icon {
+		width: 16px;
+		height: 16px;
+		border: 2px solid #528A64;
+		border-radius: 50%;
+		position: absolute;
+		top: 3px;
+		left: 0;
+		&:before {
+			content: '';
+			width: 8px;
+			height: 2px;
+			background: #528A64;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+		}
+		&:after {
+			content: '';
+			width: 2px;
+			height: 8px;
+			background: #528A64;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+
+		}
+		
+	}
+}
+
+.block {
+	border-top: 2px solid #DCDCDC;
+	padding: 0 0 5.5rem 0;
+	@include breakpoint(md-down) {
+		padding: 0 0 2.9rem 0;
+		border-top-width: 1px;
+	}
+	&__title {
+		font-family: 'San Francisco Display Bold';
+		font-size: 4rem;
+		padding: 2.8rem 0 1.3rem 0;
+		@include breakpoint(md-down) {
+			text-align: center;
+			font-size: 2.2rem;
+			padding: 1.8rem 0 1.3rem 0;
+		}
+		&:after {
+			content: '';
+			width: 6.4rem;
+			height: 0.3rem;
+			background: #1F76C5;
+			display: block;
+			margin-top: 1.2rem;
+			@include breakpoint(md-down) {
+				margin: 1.8rem auto 0 auto;
+			}
+		}
+	}
+	&__container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	&__col-1 {
+		flex-basis: 50%;
+		@include breakpoint(md-down) {
+			flex-basis: 100%;
+			order: 2;
+		}
+		.block__pic {
+			padding: 1.5rem 0 0 0;
+			@include breakpoint(md-down) {
+				padding: 0.4rem 0 2.1rem 0;
+				text-align: center; 
+			}
+		}
+	}
+	&__col-2 {
+		flex-basis: 50%;
+		@include breakpoint(md-down) {
+			flex-basis: 100%;
+			order: 1;
+		}
+		.block__pic {
+			text-align: right;
+			@include breakpoint(md-down) {
+				text-align: center;
+				margin-bottom: 0.7rem; 
+			}
+		}
+	}
+	&__col-2--source {
+		flex-basis: 40%;
+		@include breakpoint(md-down) {
+			flex-basis: 100%;
+		}
+		video {
+			width: 100%;
+		}
+	}
+	&__col-1--source {
+		flex-basis: 43%;
+		@include breakpoint(md-down) {
+			flex-basis: 100%;
+		}
+		video {
+			width: 100%;
+		}
+	}
+	&__textBox {
+		padding: 0 2rem 0 0;
+		@include breakpoint(md-down) {
+			padding: 0;
+		}
+	}
+	&__text {
+		padding: 0 0 1.7rem 0;
+		@include breakpoint(md-down) {
+			padding-bottom: 0.7rem;
+		}
+	}
+}
+.action {
+	display: flex;
+	align-items: center;
+	padding: 1.6rem 0 0 0;
+	flex-wrap: wrap;
+	@include breakpoint(md-down) {
+		padding: 0.9rem 0 0 0;
+	}
+	&__btn {
+		background: #53A73E;
+		font-family: 'San Francisco Text Bold';
+		font-size: 1.8rem;
+		text-align: center;
+		color: #fff;
+		border-radius: 0.167em;
+		padding: 1em 1.95em 1em 1.95em; 
+		@include breakpoint(md-down) {
+			flex-basis: 100%;
+			font-size: 1.6rem;
+			padding-left: 2.5em;
+			padding-right: 2.5em;
+		}
+	}
+	&__text {
+		font-family: 'San Francisco Text Bold';
+		font-size: 1.8rem;
+		padding: 0 0 0 2rem;
+		@include breakpoint(md-down) {
+			flex-basis: 100%; 
+			padding: 1.4rem 0 0 0;
+			text-align: center;
+			font-size: 1.6rem;
+		}
+	}
+	&--end {
+		justify-content: flex-end;
+	}
+}
+
+/* news */
+.news {
+	border-top: 1px solid #DCDCDC;
+	padding: 3rem 0 0 0;
+	@include breakpoint(md-down) {
+		padding: 0;
+	}
+	&__title {
+		font-family: 'San Francisco Display Bold';
+		text-align: center;
+		font-size: 3.4rem;
+		padding: 0 0 4rem 0;
+		@include breakpoint(md-down) {
+			font-size: 1.8rem;
+			padding: 3.1rem 0 2.3rem 0;
+		}
+		&:after {
+			content: '';
+			width: 6.4rem;
+			height: 0.3rem;
+			background: #1F76C5;
+			display: block;
+			margin: 2.1rem auto 0 auto;
+			@include breakpoint(md-down) {
+				
+			}
+		}
+	}
+}
+.newsList {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	@include breakpoint(md-down) {
+		justify-content: center; 
+
+	}
+	&__item {
+		flex-basis: 28.28%;
+		@include breakpoint(md-down) {
+			flex-basis: 362px;
+			margin-left: 2rem;
+			margin-right: 2rem;
+			border-bottom: 1px solid #DCDCDC;
+			margin-bottom: 4rem;
+			padding-bottom: 2.9rem;
+		}
+		@include breakpoint(sm-down) {
+			margin-left: 0;
+			margin-right: 0;
+		}
+		@include breakpoint(xs-down) {
+			flex-basis: 100%; 
+		}
+		&:nth-child(3n+2) {
+			margin-left: 2rem;
+			margin-right: 2rem;
+			@include breakpoint(sm-down) {
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+		&:last-child {
+			@include breakpoint(sm-down) {
+				border-bottom: 0;
+				padding-bottom: 0;
+				margin-bottom: 0;
+			}
+		}
+	}
+	&__img {
+		img {
+			@include breakpoint(xs-down) {
+				width: 100%;
+			}
+		}
+	}
+	&__title {
+		@include breakpoint(md-down) {
+			margin-top: .4rem;		
+		}
+		a {
+			font-family: 'San Francisco Display Bold';
+			font-size: 2.6rem;
+			color: #000;
+			line-height: 1.42;
+			@include breakpoint(md-down) {
+				font-size: 2rem;
+				line-height: 1.45;	
+			}
+		}
+	}
+	&__text {
+		padding: 0.9rem 0 0 0;
+		@include breakpoint(md-down) {
+			padding: 0;		
+		}
+	}
+	&__btn {
+		font-family: 'San Francisco Text Semibold';
+		font-size: 1.6rem;
+		text-align: center;
+		color: #1F76C5;
+		background: #FFFFFF;
+		border-radius: 0.188em;
+		min-width: 19rem;
+		margin: 0.8rem 0 0 0;
+		padding: 1.125em 0.625em 1.188em 0.625em;
+		display: inline-block;
+		vertical-align: top;
+		@include breakpoint(xs-down) {
+			width: 100%;
+			padding-top: 0.938em;
+			padding-bottom: 0.875em; 
+		}
+	}
+}
+.tagsList {
+	padding: 2.2rem 0 2rem 0;
+	@include breakpoint(md-down) {
+		padding: 2rem 0 0 0;
+
+	}
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 0.2rem 1rem 0;
+	}
+	&__link {
+		background: #A0AAB3;
+		font-family: 'San Francisco Display Bold';
+		font-size: 1.2rem;
+		line-height: 1.75;
+		text-transform: uppercase;
+		color: #fff;
+		padding: 0.333em 1.5em 0.167em 1.5em;
+		border-radius: 2em;
+		display: block;
+	}
+}
+.moreBtn {
+	font-family: 'San Francisco Text Semibold';
+	font-size: 1.6rem;
+	text-align: center;
+	color: #fff;
+	background: #1F76C5;
+	border-radius: 0.188em;
+	width: 27.1rem;
+	margin: 4.1rem auto 0 auto;
+	padding: 1.125em 0.625em 1.188em 0.625em;
+	display: block;
+	@include breakpoint(xs-down) {
+		width: 100%;
+		padding-top: 0.938em;
+		padding-bottom: 0.875em; 
+	}
+}
+
+/* footer */
+.footer {
+	background: #fff;
+	padding: 0 0 4.4rem 0;
+	@include breakpoint(sm-down) {
+		padding-bottom: 0.2rem;
+	}
+	&__top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px solid #DCDCDC;
+		height: 11rem;
+		@include breakpoint(sm-down) {
+			height: auto;
+			border: 0;
+			padding: 2rem 0 0 0;
+		}
+	}
+	&__copy {
+		font-size: 1.4rem;
+		color: #767D83;
+		@include breakpoint(sm-down) {
+			text-align: center;
+		}
+	}
+	&__logo {
+		background: url(../img/logo.svg) no-repeat;
+		width: 210px;
+		height: 31px;
+		background-size: 210px 31px;
+		text-indent: 90000px;
+		overflow: hidden;
+		position: relative;
+		left: 25px;
+		@include breakpoint(lg-down) {
+			display: none;
+		}
+	}
+	&__title {
+		font-size: 1.2rem;
+		color: #848a90;
+		font-family: 'San Francisco Text Bold';
+		padding: 2.9rem 0 1.5rem 0;
+		@include breakpoint(sm-down) {
+			padding: 1rem 0 0.9rem 0;
+		}
+	}
+	&__text {
+		font-size: 1.2rem;
+		color: #848a90;
+		padding: 0 0 0.6rem 0;
+		@include breakpoint(sm-down) {
+			line-height: 1.5;
+		}
+	}
+}
+.footerNav {
+	@include breakpoint(sm-down) {
+		display: none;
+	}
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		position: relative;
+		padding-left: 1.6rem;
+		&:first-child {
+			padding-left: 0;
+			&:before {
+				display: none;
+			}
+		}
+		&:before {
+			content: '.';
+			position: absolute;
+			left: 0.3rem;
+			top: -0.3rem;
+			color: #767D83;
+			
+		}
+	}
+	&__link {
+		color: #767D83;
+		font-size: 1.4rem;
+	}
+}
+
+.patway {
+	padding: 4.5rem 0 0.9rem 0;
+	@include breakpoint(md-down) {
+		padding: 1.9rem 0 1.5rem 0;
+	}
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		position: relative;
+		padding: 0 0 0 20px;
+		margin: 0 7px 0 0;
+		&:first-child {
+			padding: 0;
+			&:before {
+				display: none;
+			}
+		}
+		&:before {
+			content: '';
+			background: url('../img/patway-arrow.svg') no-repeat;
+			width: 9px;
+			height: 9px;
+			background-size: 9px 9px;
+			position: absolute;
+			left: 0;
+			top: 5px;
+			transform: rotate(180deg);
+
+		}
+	}
+}
+
+/* ARTICLE PAGE */
+.articleSingle {
+	&__title {
+		font-family: 'San Francisco Display Bold';
+		font-size: 4rem;
+		margin-bottom: 0.1rem;
+		@include breakpoint(md-down) {
+			font-size: 2.2rem;
+			text-align: center;
+		}
+		&:after {
+		    content: '';
+		    width: 6.4rem;
+		    height: 0.3rem;
+		    background: #1F76C5;
+		    display: block;
+		    margin: 2.1rem 0 0 0;
+		    @include breakpoint(md-down) {
+				margin: 1.3rem auto 0 auto;
+			}
+		}
+	}
+	&__pic {
+		float: right;
+		margin: 1.7rem 0 3rem 6rem;
+		@include breakpoint(md-down) {
+			margin: 1rem 0 2.1rem 0;
+			text-align: center;
+			float: none;
+		}
+	}
+	&__text {
+		padding: 0 0 1.7rem 0;
+		@include breakpoint(md-down) {
+			line-height: 1.5;
+			padding-bottom: 1.2rem;
+		}
+	}
+	.tagsList {
+		padding-bottom: 1.3rem;
+		@include breakpoint(md-down) {
+			padding: 1.5rem 0 0 0;
+		}
+	}
+}
+.notification {
+	display: flex;
+	align-items: center;
+	background: #fff;
+	margin: 0 0 5.5rem 0;
+	padding: 2.4rem 4.4rem 2.4rem 3.6rem;
+	@include breakpoint(md-down) {
+		flex-direction: column;
+		padding: 2rem;
+		margin: 0.5rem 0 2.6rem 0;
+	}
+	&__alert {
+		background: url('../img/ico-alert.svg') no-repeat;
+		background-size: 50px 43px;
+		min-width: 50px;
+		min-height: 43px;
+		@include breakpoint(md-down) {
+			margin: 0 0 1.2rem 0;
+		}
+	}
+	&__text {
+		font-family: 'San Francisco Text Medium';
+		padding: 0 4rem 0 3.6rem;
+		line-height: 1.5;
+		margin: 0;
+		@include breakpoint(md-down) {
+			padding: 0 0 1.1rem 0;
+		}
+	}
+	&__btn {
+		background: #53A73E;
+		border-radius: 0.167em;
+		font-size: 1.8rem;
+		line-height: 1.6;
+		color: #fff;
+		padding: 0.611em 1.611em 0.556em 1.611em;
+		display: flex;
+		align-items: center;
+		min-width: 38.3rem;
+		font-family: 'San Francisco Text Bold';
+		@include breakpoint(md-down) {
+			min-width: 100%;
+			text-align: center;
+			line-height: 1.33;
+		}
+	}
+
+}
+
+body.night {
+	.header {
+		background: #000;
+		box-shadow: 0px 0px 0.6429em rgba(0, 0, 0, 0.3);
+		&__logo {
+			    background-image: url('../img/logo-night.svg');
+		}
+	}
+	.menu {
+		&__link {
+			color: #b5b5b5;
+		}
+	}
+	.warning {
+		&__inside {
+			color: #222;
+		} 
+	}
+	.description {
+		&__text {
+			strong {
+				color: #2d2d2d;
+			}
+		}
+	}
+	.services {
+		&__item {
+			background: #232323;
+		}
+	}
+	.block {
+		border-top: 2px solid rgba(220, 220, 220, 0.15);
+		&__text {
+			a {
+				color: #6dbaff;
+			}
+		}
+	}
+	.tagsList {
+		&__link {
+			color: #2d2d2d;
+			background: #a9a9a9;
+		}
+	}
+	.newsList {
+		&__title {
+			a {
+				color: #e6e6e6;
+			}
+		}
+	}
+	.footer {
+		background: #000;
+		&__top {
+			border-bottom: 1px solid rgba(220, 220, 220, 0.25);
+		}
+		&__logo {
+			background-image: url('../img/logo-night.svg');
+		}
+		&__text {
+			a {
+				color: #6dbaff;
+			}
+		}
+	}
+	.patway {
+		&__item {
+			&:before {
+				background-image: url('../img/patway-arrow-night.svg');
+				transform: rotate(0);
+			}
+		}
+		&__link {
+			color: #6dbaff;
+		}
+	} 
+	.notification {
+		background: #4a4a4a;
+		&__alert {
+			background-image: url('../img/ico-alert-night.svg');
+		}
+	}
+	.news {
+		border-top: 1px solid rgba(220, 220, 220, 0.15);
+	}
+	.mobileNaviList {
+		background: #1d1d1d;
+	}
+	.articleSingle {
+		&__text {
+			a {
+				color: #6dbaff;
+			}
+		}
+	}
+	.box {
+		&__date.box__1 {
+			background-color:#9c4538;
+		}
+		&__date.box__2 {
+			background-color:#639041;
+		}
+		&__date.box__3 {
+			background-color:#121213;
+		}
+		&__top {
+			background: #ededed;
+		}
+	}
+}

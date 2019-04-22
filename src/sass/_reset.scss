@@ -1,0 +1,72 @@
+html, body {width:100%; height:100%;}
+
+* {margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased;}
+table {border-collapse: collapse; width: 100%;}
+input {
+	&:focus {outline: none;}
+}
+img, table {border: none;}
+
+
+a {
+	color: #1F76C5;
+	text-decoration: none;
+	transition: all 0.5s ease;
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+		outline: 0;
+	}
+	
+}
+
+				
+button {outline: none; cursor: pointer;}
+svg:not(:root) {overflow: hidden;}
+
+
+header,footer,article,section,hgroup,nav,menu,aside,figure,main,video,address,picture,figcaption {display:block;}
+
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 1rem 0;
+	font: {
+	    weight: normal;
+	}
+}
+h1 {font-size: 6rem;}
+h2 {font-size: 4rem;}
+h3 {font-size: 2.6rem;}
+h4 {font-size: 2rem;}
+h5 {font-size: 1.6rem;}
+h6 {font-size: 1.2rem;}
+
+ul, ol {list-style:none;}
+
+p {
+	margin: 1rem 0;
+	line-height: 1.85;
+}
+
+img{width:auto\9;height:auto;max-width:100%;vertical-align:middle;border:0;-ms-interpolation-mode:bicubic;}
+
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background: #F4F4F5;
+	font: {
+		family: 'San Francisco Text Regular', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+		size: 1.6rem;
+	}
+	line-height: 1.2;
+	color: #000;
+	&.night {
+		background: #2d2d2d;
+		color: #e6e6e6;
+	}
+	
+}
